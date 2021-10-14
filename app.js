@@ -79,4 +79,26 @@ for (let i = 0; i < aliens.length; i++) {
     if (i == aliens.length - 1) {
         break;
     }
+
+    // create elements for both attack and retreat buttons
+    // append buttons to screen
+    // create onclick functionality for buttons
+    
+    let action = null;
+    while (action == null) {
+        action = prompt('"attack" or "retreat"?');
+        // Keep prompting until the user types "action" or "retreat".
+        if (!(action == 'attack' || action == 'retreat')) {
+            action = null;
+        }
+    }
+    if (action == 'retreat') {
+        break;
+    }
+}
+
+if (heroShip.hull > 0) {
+    alert('Game over, you defeated ' + aliensDefeated + ' aliens!');
+} else {
+    alert('Game over, you lose.');
 }
