@@ -72,4 +72,11 @@ for (let i = 0; i < aliens.length; i++) {
         attackSeqence.append(heroShip.name + ' went kabloo-ey!');
         break;
     }
+
+    // Otherwise, end the game if this was the last alien
+    attackSeqence.append(alien.name + ' went kabloo-ey!');
+    aliensDefeated++;
+    if (i == aliens.length - 1) {
+        break;
+    }
 }
