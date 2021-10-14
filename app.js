@@ -16,7 +16,7 @@ class Spaceship {
 
 // Create alien spaceship class with randomly generated hull, firepower, accuracy
 
-class AlienShip extends Ship {
+class AlienShip extends Spaceship {
     constructor(name) {
         let hull = Math.floor(Math.random() * 4) + 3;
         let firepower = Math.floor(Math.random() * 3) + 2;
@@ -30,3 +30,11 @@ class AlienShip extends Ship {
 // Generate alien spaceship retaliation
 // On screen prompt for hit/miss + damage done
 // On screen health bar for our and enemy ship
+
+const uss = new Spaceship('USS Montalev', 20, 5, 0.7);
+const aliens = [];
+for (let i = 0; i < 6; i++) {
+    aliens.push(new AlienShip('Alien ' + i));
+}
+
+console.log(aliens, uss)
