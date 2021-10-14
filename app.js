@@ -5,7 +5,8 @@ console.log('App Connected.')
 // Create console on front end
 // Create our spaceship class with attributes name, hull, firepower, accuracy
 
-const gameInfo = document.querySelector('.information')
+const shipInfo = document.querySelector('.ship_information')
+const alienInfo = document.querySelector('.alien_information')
 
 class Spaceship {
     constructor(name, hull, firepower, accuracy) {
@@ -34,15 +35,14 @@ class AlienShip extends Spaceship {
 // On screen health bar for our and enemy ship
 
 const uss = new Spaceship('USS Montalev', 20, 5, 0.7);
-gameInfo.append(uss.name)
+shipInfo.append(uss.name)
 
 const aliens = [];
     for (let i = 0; i < 6; i++) {
         aliens.push(new AlienShip('Alien ' + i));
-        gameInfo.append(aliens[i].name)
+        alienInfo.append(aliens[i].name)
     }
 
-let attackers = document.createElement('attackShips')
 
 
 
