@@ -42,12 +42,6 @@ const aliens = [];
         gameInfo.append(aliens[i].name)
     }
 
-    console.log(aliens)
-    gameInfo.append(aliens[i].name)
-
-    
-    
-
 let attackers = document.createElement('attackShips')
 
 
