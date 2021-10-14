@@ -45,7 +45,7 @@ class AlienShip extends Spaceship {
 // On screen health bar for our and enemy ship
 
 // creating hero ship
-const heroShip = new Spaceship('heroShip Montalev', 20, 5, 0.7);
+const heroShip = new Spaceship('USS Montalev', 20, 5, 0.7);
 shipInfo.append(heroShip.name)
 
 // creatin aliens 
@@ -65,5 +65,11 @@ for (let i = 0; i < aliens.length; i++) {
         if (alien.hull > 0) {
             alien.attack(heroShip);
         }
+    }
+
+        // End the game if the user lost the battle
+    if (heroShip.hull <= 0) {
+        attackSeqence.append(heroShip.name + ' went kabloo-ey!');
+        break;
     }
 }
