@@ -109,26 +109,10 @@ shipInfo.append(heroShip.name)
 // Start game, change USS Schwarzenegger to ${heroShip}, change prompt answers to .toLowerCase
 function startGame() {
     alienShip.length = 0;
-    // const begin = prompt("Earth has been attacked by a horde of aliens! You are the captain of the U.S.S Schwarzenegger, on a mission to destroy every last alien ship. Battle the aliens as you try to destroy them with your lasers. Type start to begin.", "Start");
-    // if ((begin === "Start") || (begin === "start")) {
-    //     makeAlienShip();
-    //     play();
-    // } else {
-    //     const notPlaying = alert("Why don't you want to play?!");
-    //     return;
-    // }
     makeAlienShip()
     toggleAttackButtons()
     play()
 }
-
-
-// // creatin aliens 
-// const aliens = [];
-// for (let i = 0; i < 6; i++) {
-//     aliens.push(new AlienShip('Alien ' + i));
-//     alienInfo.append(aliens[i].name)
-// }
 
 const alienShip = []
 
@@ -143,15 +127,6 @@ const makeAlienShip = () => {
 
 // .toLowerCase
 const play = () => {
-    // let ask = prompt("Do you want to attack the alien spaceship?", "Yes/No")
-    // if ((ask === "yes") || (ask === "Yes")) {
-    //     // ourAttack(alienShip[0]);
-    //     battle()
-    //     evaluate();
-    //     // console.log(alienShip[0].hull);
-    // } else {
-    //     startGame();
-    // }
     attackSeqence.append("Do you want to attack the alien spaceship?")
 }
 
@@ -159,53 +134,31 @@ const play = () => {
 const evaluate = () => {
     victory();
     if (alienShip[0].hull <= 0) {
-        destroyedShip();
-    } else {
-        // enemyAttack(schwarzenegger);
-        battle()
-        play();
+        destroyedShip()
     }
+
+    battle()
 }
 
 const destroyedShip = () => {
+    attackSeqence.append(alienShip[0].name + ' went kabloo-ey!');
     alienShip.shift();
-    const proceed = prompt("You've destroyed a ship! Would you like to attack the next ship, or retreat?", "Continue/Retreat");
-    if ((proceed === "Continue") || (proceed === "continue")) {
-        play();
-    } else {
-        alert("What a shame...");
-        startGame();
-    }
+
 }
 
 // starting batlle between ships
 
 function battle() {
     let aliensDefeated = 0;
-    // for (let i = 0; i < alienShip.length; i++) {
-        // Do battle with the alien
         let alien = alienShip[0];
         if (heroShip.hull > 0 && alien.hull > 0) {
             heroShip.attack(alien);
             if (alien.hull > 0) {
                 alien.attack(heroShip);
             }
-            return
         }
-        if (heroShip.hull <= 0) {
-            attackSeqence.append(heroShip.name + ' went kabloo-ey!');
-            return;
-        }
-
-    // Otherwise, end the game if this was the last alien
-    attackSeqence.append(alien.name + ' went kabloo-ey!');
-    aliensDefeated++;
-    if (alienShip.length = 0) {
-        return;
-    }
-// }
+    evaluate()
 }
-
 
 const victory = () => {
     if (alienShip.length <= 0) {
