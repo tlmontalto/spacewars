@@ -132,31 +132,40 @@ const play = () => {
 
 
 const evaluate = () => {
+    // if (alienShip[0].hull <= 0) {
+    //     destroyedShip()
+    // }
     victory();
-    if (alienShip[0].hull <= 0) {
-        destroyedShip()
-    }
-
-    battle()
 }
 
 const destroyedShip = () => {
     attackSeqence.append(alienShip[0].name + ' went kabloo-ey!');
     alienShip.shift();
-
 }
 
 // starting batlle between ships
 
 function battle() {
-    let aliensDefeated = 0;
-        let alien = alienShip[0];
-        if (heroShip.hull > 0 && alien.hull > 0) {
-            heroShip.attack(alien);
-            if (alien.hull > 0) {
-                alien.attack(heroShip);
-            }
+    // let aliensDefeated = 0;
+    let alien = alienShip[0];
+    if (heroShip.hull > 0 && alien.hull > 0) {
+        heroShip.attack(alien);
+        if (alienShip[0].hull <= 0) {
+            destroyedShip()
         }
+        else if (alien.hull > 0) {
+            alien.attack(heroShip);
+            
+        }
+
+    }
+    // if (heroShip.hull > 0 && alien.hull > 0) {
+    //     heroShip.attack(alien);
+    //     if (alien.hull > 0) {
+    //         alien.attack(heroShip);
+    //     }
+    //     return
+    // }
     evaluate()
 }
 
