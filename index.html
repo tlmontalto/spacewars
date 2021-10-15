@@ -12,7 +12,7 @@
     
     <div class="container">
         <h2>Starship Console</h2>
-        <button id="start_button">Start</button>
+        <button onclick="startGame()" id="start_button">Start</button>
         <div class="ship_information">
 
         </div>
@@ -20,7 +20,8 @@
 
         </div>
         <div class="attack_sequence">
-
+            <button onclick="battle()" id="attack_button" class="hidden">Attack</button>
+            <button onclick="retreat()" id="retreat_button" class="hidden">Retreat</button>
         </div>
     </div>
 </body>

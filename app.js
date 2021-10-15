@@ -7,6 +7,8 @@ const shipInfo = document.querySelector('.ship_information')
 const alienInfo = document.querySelector('.alien_information')
 const startButton = document.querySelector('#start_button')
 const attackSeqence = document.querySelector('.attack_sequence')
+const attackButton = document.querySelector('#attack_button')
+const retreatButton = document.querySelector('#retreat_button')
 
 class Spaceship {
     constructor(name, hull, firepower, accuracy) {
@@ -107,14 +109,17 @@ shipInfo.append(heroShip.name)
 // Start game, change USS Schwarzenegger to ${heroShip}, change prompt answers to .toLowerCase
 function startGame() {
     alienShip.length = 0;
-    const begin = prompt("Earth has been attacked by a horde of aliens! You are the captain of the U.S.S Schwarzenegger, on a mission to destroy every last alien ship. Battle the aliens as you try to destroy them with your lasers. Type start to begin.", "Start");
-    if ((begin === "Start") || (begin === "start")) {
-        makeAlienShip();
-        play();
-    } else {
-        const notPlaying = alert("Why don't you want to play?!");
-        return;
-    }
+    // const begin = prompt("Earth has been attacked by a horde of aliens! You are the captain of the U.S.S Schwarzenegger, on a mission to destroy every last alien ship. Battle the aliens as you try to destroy them with your lasers. Type start to begin.", "Start");
+    // if ((begin === "Start") || (begin === "start")) {
+    //     makeAlienShip();
+    //     play();
+    // } else {
+    //     const notPlaying = alert("Why don't you want to play?!");
+    //     return;
+    // }
+    makeAlienShip()
+    toggleAttackButtons()
+    play()
 }
 
 
@@ -130,7 +135,7 @@ const alienShip = []
 const makeAlienShip = () => {
     // let x = Math.random(Math.floor) * 5 + 3
     for (let i = 0; i <= 5; i++) {
-        alienShip.push(new AlienShip('Alien' + i));
+        alienShip.push(new AlienShip('Alien ' + i));
     }
     console.log(alienShip);
 }
@@ -138,15 +143,16 @@ const makeAlienShip = () => {
 
 // .toLowerCase
 const play = () => {
-    let ask = prompt("Do you want to attack the alien spaceship?", "Yes/No")
-    if ((ask === "yes") || (ask === "Yes")) {
-        // ourAttack(alienShip[0]);
-        battle()
-        evaluate();
-        // console.log(alienShip[0].hull);
-    } else {
-        startGame();
-    }
+    // let ask = prompt("Do you want to attack the alien spaceship?", "Yes/No")
+    // if ((ask === "yes") || (ask === "Yes")) {
+    //     // ourAttack(alienShip[0]);
+    //     battle()
+    //     evaluate();
+    //     // console.log(alienShip[0].hull);
+    // } else {
+    //     startGame();
+    // }
+    attackSeqence.append("Do you want to attack the alien spaceship?")
 }
 
 
@@ -184,6 +190,7 @@ function battle() {
             if (alien.hull > 0) {
                 alien.attack(heroShip);
             }
+            return
         }
         if (heroShip.hull <= 0) {
             attackSeqence.append(heroShip.name + ' went kabloo-ey!');
@@ -212,4 +219,14 @@ const victory = () => {
     }
 }
 
-startGame()
+function toggleAttackButtons() {
+    attackButton.classList.toggle('hidden')
+    retreatButton.classList.toggle('hidden')
+    startButton.classList.toggle('hidden')
+}
+
+function retreat() {
+    attackSeqence.append("What are you so afraid of?")
+}
+
+// startGame()
