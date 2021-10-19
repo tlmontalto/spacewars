@@ -9,9 +9,9 @@ body {
 .ship_information {
     border: 1px solid black;
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 10%;
-    width: 100px;
+    width: 20%;
     height: 50px;
 
 }
@@ -19,17 +19,17 @@ body {
 .alien_information {
     border: 1px solid black;
     position: absolute;
-    top: 30%;
+    top: 20%;
     right: 10%;
-    width: 100px;
+    width: 20%;
     height: 50px;
 }
 
 .attack_sequence {
     border: 1px solid black;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    width: 300px;
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    width: 60%;
     height: 300px;
 }
