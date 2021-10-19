@@ -118,7 +118,7 @@ const alienShip = []
 
 const makeAlienShip = () => {
     // let x = Math.random(Math.floor) * 5 + 3
-    for (let i = 0; i <= 5; i++) {
+    for (let i = 1; i <= 6; i++) {
         alienShip.push(new AlienShip('Alien ' + i));
     }
     console.log(alienShip);
@@ -132,9 +132,6 @@ const play = () => {
 
 
 const evaluate = () => {
-    // if (alienShip[0].hull <= 0) {
-    //     destroyedShip()
-    // }
     victory();
 }
 
@@ -155,17 +152,8 @@ function battle() {
         }
         else if (alien.hull > 0) {
             alien.attack(heroShip);
-            
         }
-
     }
-    // if (heroShip.hull > 0 && alien.hull > 0) {
-    //     heroShip.attack(alien);
-    //     if (alien.hull > 0) {
-    //         alien.attack(heroShip);
-    //     }
-    //     return
-    // }
     evaluate()
 }
 
@@ -190,5 +178,3 @@ function toggleAttackButtons() {
 function retreat() {
     attackSeqence.append("What are you so afraid of?")
 }
-
-// startGame()
