@@ -48,12 +48,6 @@ function startGame() {
     play()
 }
 
-function beginGamePlay() {
-    attackButton.classList.remove('hidden')
-    retreatButton.classList.remove('hidden')
-    startButton.classList.add('hidden')
-}
-
 let heroShip
 // creating hero ship
 const makeHeroShip = () => {
@@ -71,15 +65,14 @@ const makeAlienShip = () => {
     console.log(alienShip);
 }
 
-
-// .toLowerCase
-const play = () => {
-    attackSeqence.append("Do you want to attack the alien spaceship?")
+function beginGamePlay() {
+    attackButton.classList.remove('hidden')
+    retreatButton.classList.remove('hidden')
+    startButton.classList.add('hidden')
 }
 
-
-const evaluate = () => {
-    gameEnd();
+const play = () => {
+    attackSeqence.append("Do you want to attack the alien spaceship?")
 }
 
 const destroyedShip = () => {
@@ -101,19 +94,19 @@ function battle() {
             alien.attack(heroShip);
         }
     }
-    evaluate()
+    gameEnd()
 }
 
 const gameEnd = () => {
     if (alienShip.length <= 0) {
     alert("Congratulations! You've saved the day!");
     // startGame();
-    clearText()
+    // clearText()
     clearGamePlay()
     } else if (heroShip.hull <= 0) {
     alert("They've blown a hole clear through the hull Captain, we must retreat to fight another day.");
     // startGame();
-    clearText()
+    // clearText()
     clearGamePlay()
     } else {
         return;
@@ -121,23 +114,14 @@ const gameEnd = () => {
 }
 
 function clearGamePlay() {
+    attackSeqence.innerText = ""
+    shipInfo.innerText = ""
+    alienInfo.innerText = ""
     startButton.classList.remove('hidden')
     attackButton.classList.add('hidden')
     retreatButton.classList.add('hidden')
 }
 
-// function toggleAttackButtons() {
-//     attackButton.classList.toggle('hidden')
-//     retreatButton.classList.toggle('hidden')
-//     startButton.classList.toggle('hidden')
-// }
-
 function retreat() {
     attackSeqence.append("What are you so afraid of?")
-}
-
-function clearText() {
-    attackSeqence.innerText = ""
-    shipInfo.innerText = ""
-    alienInfo.innerText = ""
 }
