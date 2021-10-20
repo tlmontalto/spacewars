@@ -9,6 +9,7 @@ const startButton = document.querySelector('#start_button')
 const attackSeqence = document.querySelector('.attack_sequence')
 const attackButton = document.querySelector('#attack_button')
 const retreatButton = document.querySelector('#retreat_button')
+const commandButtons = document.querySelector('.command_buttons')
 
 class Spaceship {
     constructor(name, hull, firepower, accuracy) {
@@ -111,7 +112,8 @@ function startGame() {
     alienShip.length = 0;
     makeHeroShip()
     makeAlienShip()
-    toggleAttackButtons()
+    attackButton.classList.remove('hidden')
+    retreatButton.classList.remove('hidden')
     play()
 }
 
@@ -171,11 +173,15 @@ const gameEnd = () => {
     // startGame();
     clearText()
     startButton.classList.remove('hidden')
+    attackButton.classList.add('hidden')
+    retreatButton.classList.add('hidden')
     } else if (heroShip.hull <= 0) {
     alert("They've blown a hole clear through the hull Captain, we must retreat to fight another day.");
     // startGame();
     clearText()
     startButton.classList.remove('hidden')
+    attackButton.classList.add('hidden')
+    retreatButton.classList.add('hidden')
     } else {
         return;
     }
@@ -192,7 +198,7 @@ function retreat() {
 }
 
 function clearText() {
-    attackSeqence.innerHTML = ""
-    shipInfo.innerHTML = ""
-    alienInfo.innerHTML = ""
+    attackSeqence.innerText = ""
+    shipInfo.innerText = ""
+    alienInfo.innerText = ""
 }
