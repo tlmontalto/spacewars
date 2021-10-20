@@ -79,6 +79,8 @@ const play = () => {
 const destroyedShip = () => {
     attackSeqence.append(alienShip[0].name + ' went kabloo-ey!');
     alienShip.shift();
+    gameEnd()
+    console.log(alienShip)
 }
 
 function fillAlienStats() {
@@ -101,7 +103,7 @@ function battle() {
             alien.attack(heroShip);
         }
     }
-    gameEnd()
+    // gameEnd()
 }
 
 const gameEnd = () => {
