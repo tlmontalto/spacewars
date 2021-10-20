@@ -47,8 +47,8 @@ class AlienShip extends Spaceship {
 // On screen health bar for our and enemy ship
 
 // creating hero ship
-const heroShip = new Spaceship('USS Montalev', 20, 5, 0.7);
-shipInfo.append(heroShip.name)
+// const heroShip = new Spaceship('USS Montalev', 20, 5, 0.7);
+// shipInfo.append(heroShip.name)
 
 // // creatin aliens 
 // const aliens = [];
@@ -109,9 +109,17 @@ shipInfo.append(heroShip.name)
 // Start game, change USS Schwarzenegger to ${heroShip}, change prompt answers to .toLowerCase
 function startGame() {
     alienShip.length = 0;
+    makeHeroShip()
     makeAlienShip()
     toggleAttackButtons()
     play()
+}
+
+let heroShip
+// creating hero ship
+const makeHeroShip = () => {
+    heroShip = new Spaceship('USS Montalev', 20, 5, 0.7);
+    shipInfo.append(heroShip.name)
 }
 
 const alienShip = []
