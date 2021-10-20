@@ -114,6 +114,7 @@ function startGame() {
     makeAlienShip()
     attackButton.classList.remove('hidden')
     retreatButton.classList.remove('hidden')
+    startButton.classList.add('hidden')
     play()
 }
 
