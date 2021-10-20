@@ -140,7 +140,7 @@ const play = () => {
 
 
 const evaluate = () => {
-    victory();
+    gameEnd();
 }
 
 const destroyedShip = () => {
@@ -165,13 +165,17 @@ function battle() {
     evaluate()
 }
 
-const victory = () => {
+const gameEnd = () => {
     if (alienShip.length <= 0) {
     alert("Congratulations! You've saved the day!");
-    startGame();
+    // startGame();
+    clearText()
+    startButton.classList.remove('hidden')
     } else if (heroShip.hull <= 0) {
     alert("They've blown a hole clear through the hull Captain, we must retreat to fight another day.");
-    startGame();
+    // startGame();
+    clearText()
+    startButton.classList.remove('hidden')
     } else {
         return;
     }
@@ -185,4 +189,10 @@ function toggleAttackButtons() {
 
 function retreat() {
     attackSeqence.append("What are you so afraid of?")
+}
+
+function clearText() {
+    attackSeqence.innerHTML = ""
+    shipInfo.innerHTML = ""
+    alienInfo.innerHTML = ""
 }
