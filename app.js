@@ -63,7 +63,6 @@ const makeAlienShip = () => {
         alienShip.push(new AlienShip('Alien ' + i));
     }
     console.log(alienShip);
-    // alienInfo.append(alienShip[0].name)
     fillAlienStats()
 }
 
@@ -90,7 +89,6 @@ function fillAlienStats() {
 // starting batlle between ships
 
 function battle() {
-    // let aliensDefeated = 0;
     let alien = alienShip[0];
     if (heroShip.hull > 0 && alien.hull > 0) {
         heroShip.attack(alien);
@@ -98,10 +96,6 @@ function battle() {
             destroyedShip()
             alienInfo.innerText = ""
             fillAlienStats()
-            // alienInfo.append(alienShip[0].name)
-            // alienInfo.append('\n' + alienShip[0].hull)
-            // alienInfo.append('\n' + alienShip[0].firepower)
-            // alienInfo.append('\n' + alienShip[0].accuracy)
         }
         else if (alien.hull > 0) {
             alien.attack(heroShip);
