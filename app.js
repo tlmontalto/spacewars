@@ -100,13 +100,9 @@ function battle() {
 const gameEnd = () => {
     if (alienShip.length <= 0) {
     alert("Congratulations! You've saved the day!");
-    // startGame();
-    // clearText()
     clearGamePlay()
     } else if (heroShip.hull <= 0) {
     alert("They've blown a hole clear through the hull Captain, we must retreat to fight another day.");
-    // startGame();
-    // clearText()
     clearGamePlay()
     } else {
         return;
