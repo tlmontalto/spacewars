@@ -85,7 +85,10 @@ const destroyedShip = () => {
 }
 
 function fillAlienStats() {
-    const alienStats = `${alienShip[0].name} \n hull: ${alienShip[0].hull} \n firepower: ${alienShip[0].firepower} \n accuracy: ${alienShip[0].accuracy}`
+    const alienStats = `${alienShip[0].name}
+    hull: ${alienShip[0].hull}
+    firepower: ${alienShip[0].firepower}
+    accuracy: ${alienShip[0].accuracy}`
     alienInfo.append(alienStats)
 }
 
