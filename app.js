@@ -63,7 +63,6 @@ const makeAlienShip = () => {
         alienShip.push(new AlienShip('Alien ' + i));
     }
     console.log(alienShip);
-    alienInfo.append(alienShip[0].name)
 }
 
 function beginGamePlay() {
@@ -90,11 +89,6 @@ function battle() {
         heroShip.attack(alien);
         if (alienShip[0].hull <= 0) {
             destroyedShip()
-            alienInfo.innerText = ""
-            alienInfo.append(alienShip[0].name)
-            alienInfo.append(' ' + alienShip[0].hull)
-            alienInfo.append(' ' + alienShip[0].firepower)
-            alienInfo.append(' ' + alienShip[0].accuracy)
         }
         else if (alien.hull > 0) {
             alien.attack(heroShip);
