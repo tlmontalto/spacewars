@@ -1,6 +1,8 @@
 // Create console on front end
 // Create our spaceship class with attributes name, hull, firepower, accuracy
+// TODO Skip lines after each response
 
+const game = document.querySelector('.game')
 const shipInfo = document.querySelector('.ship_information')
 const alienInfo = document.querySelector('.alien_information')
 const startButton = document.querySelector('#start_button')
@@ -42,6 +44,7 @@ class AlienShip extends Spaceship {
 // Start game, change USS Schwarzenegger to ${heroShip}, change prompt answers to .toLowerCase
 function startGame() {
     alienShip.length = 0;
+    displayGame()
     makeHeroShip()
     makeAlienShip()
     beginGamePlay()
@@ -63,6 +66,7 @@ const makeAlienShip = () => {
         alienShip.push(new AlienShip('Alien ' + i));
     }
     console.log(alienShip);
+    fillAlienStats()
 }
 
 function beginGamePlay() {
@@ -78,32 +82,45 @@ const play = () => {
 const destroyedShip = () => {
     attackSeqence.append(alienShip[0].name + ' went kabloo-ey!');
     alienShip.shift();
+    gameEnd()
+    console.log(alienShip)
+}
+
+function fillAlienStats() {
+    const alienStats = `${alienShip[0].name}
+    hull: ${alienShip[0].hull}
+    firepower: ${alienShip[0].firepower}
+    accuracy: ${alienShip[0].accuracy}`
+    alienInfo.append(alienStats)
 }
 
 // starting batlle between ships
 
 function battle() {
-    // let aliensDefeated = 0;
     let alien = alienShip[0];
     if (heroShip.hull > 0 && alien.hull > 0) {
         heroShip.attack(alien);
         if (alienShip[0].hull <= 0) {
             destroyedShip()
+            alienInfo.innerText = ""
+            fillAlienStats()
         }
         else if (alien.hull > 0) {
             alien.attack(heroShip);
         }
     }
-    gameEnd()
+    // gameEnd()
 }
 
 const gameEnd = () => {
     if (alienShip.length <= 0) {
     alert("Congratulations! You've saved the day!");
     clearGamePlay()
+    showGame()
     } else if (heroShip.hull <= 0) {
     alert("They've blown a hole clear through the hull Captain, we must retreat to fight another day.");
     clearGamePlay()
+    showGame()
     } else {
         return;
     }
@@ -120,4 +137,12 @@ function clearGamePlay() {
 
 function retreat() {
     attackSeqence.append("What are you so afraid of?")
+}
+
+function displayGame() {
+    game.classList.remove('hidden')
+}
+
+function showGame() {
+    game.classList.add('hidden')
 }
