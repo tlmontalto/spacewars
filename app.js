@@ -1,5 +1,6 @@
 // Create console on front end
 // Create our spaceship class with attributes name, hull, firepower, accuracy
+// TODO Skip lines after each response
 
 const shipInfo = document.querySelector('.ship_information')
 const alienInfo = document.querySelector('.alien_information')
