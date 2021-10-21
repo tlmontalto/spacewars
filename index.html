@@ -10,22 +10,19 @@
     <title>SpaceWars!</title>
 </head>
 <body>
-    
     <div class="container">
         <h1>Space Wars!</h1>
         <button onclick="startGame()" id="start_button" class="btn btn-dark">Start</button>
-        <div class="ship_information">
-
-        </div>
-        <div class="alien_information">
-
-        </div>
-        <div class="starship_console">
-            <h2>Starship Console</h2>
-            <div class="attack_sequence"></div>
-            <div class="command_buttons">
-                <button onclick="battle()" id="attack_button" class="hidden btn btn-primary">Attack</button>
-                <button onclick="retreat()" id="retreat_button" class="hidden btn btn-secondary">Retreat</button>
+        <div class="game hidden">
+            <div class="ship_information"></div>
+            <div class="alien_information"></div>
+            <div class="starship_console">
+                <h2>Starship Console</h2>
+                <div class="attack_sequence"></div>
+                <div class="command_buttons">
+                    <button onclick="battle()" id="attack_button" class="hidden btn btn-primary">Attack</button>
+                    <button onclick="retreat()" id="retreat_button" class="hidden btn btn-secondary">Retreat</button>
+                </div>
             </div>
         </div>
     </div>

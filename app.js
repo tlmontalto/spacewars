@@ -2,6 +2,7 @@
 // Create our spaceship class with attributes name, hull, firepower, accuracy
 // TODO Skip lines after each response
 
+const game = document.querySelector('.game')
 const shipInfo = document.querySelector('.ship_information')
 const alienInfo = document.querySelector('.alien_information')
 const startButton = document.querySelector('#start_button')
@@ -43,6 +44,7 @@ class AlienShip extends Spaceship {
 // Start game, change USS Schwarzenegger to ${heroShip}, change prompt answers to .toLowerCase
 function startGame() {
     alienShip.length = 0;
+    displayGame()
     makeHeroShip()
     makeAlienShip()
     beginGamePlay()
@@ -114,9 +116,11 @@ const gameEnd = () => {
     if (alienShip.length <= 0) {
     alert("Congratulations! You've saved the day!");
     clearGamePlay()
+    showGame()
     } else if (heroShip.hull <= 0) {
     alert("They've blown a hole clear through the hull Captain, we must retreat to fight another day.");
     clearGamePlay()
+    showGame()
     } else {
         return;
     }
@@ -133,4 +137,12 @@ function clearGamePlay() {
 
 function retreat() {
     attackSeqence.append("What are you so afraid of?")
+}
+
+function displayGame() {
+    game.classList.remove('hidden')
+}
+
+function showGame() {
+    game.classList.add('hidden')
 }
